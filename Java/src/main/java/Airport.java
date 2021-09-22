@@ -13,11 +13,9 @@ import java.util.*;
 public class Airport {
     private List<? extends Plane> planes;
 
-
     public List<PassengerPlane> getPassengerPlanes() {
-        List<? extends Plane> allPlanesList = this.planes;
         List<PassengerPlane> passengerPlanesList = new ArrayList<>();
-        for (Plane plane : allPlanesList) {
+        for (Plane plane : this.planes) {
             if (plane instanceof PassengerPlane) {
                 passengerPlanesList.add((PassengerPlane) plane);
             }
@@ -68,7 +66,6 @@ public class Airport {
             }
         }
         return bomberMilitaryPlanes;
-
     }
 
     public List<experimentalPlane> getExperimentalPlanes() {
