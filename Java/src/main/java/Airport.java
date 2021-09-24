@@ -1,4 +1,4 @@
-import Planes.experimentalPlane;
+import Planes.ExperimentalPlane;
 import models.MilitaryType;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
@@ -12,6 +12,10 @@ import java.util.*;
 
 public class Airport {
     private List<? extends Plane> planes;
+
+    public Airport(List<? extends Plane> planes) {
+        this.planes = planes;
+    }
 
     public List<PassengerPlane> getPassengerPlanes() {
         List<PassengerPlane> passengerPlanesList = new ArrayList<>();
@@ -68,11 +72,11 @@ public class Airport {
         return bomberMilitaryPlanes;
     }
 
-    public List<experimentalPlane> getExperimentalPlanes() {
-        List<experimentalPlane> experimentalPlanes = new ArrayList<>();
+    public List<ExperimentalPlane> getExperimentalPlanes() {
+        List<ExperimentalPlane> experimentalPlanes = new ArrayList<>();
         for (Plane plane : planes) {
-            if (plane instanceof experimentalPlane) {
-                experimentalPlanes.add((experimentalPlane) plane);
+            if (plane instanceof ExperimentalPlane) {
+                experimentalPlanes.add((ExperimentalPlane) plane);
             }
         }
         return experimentalPlanes;
@@ -122,10 +126,6 @@ public class Airport {
         return "Airport{" +
                 "Planes=" + planes.toString() +
                 '}';
-    }
-
-    public Airport(List<? extends Plane> planes) {
-        this.planes = planes;
     }
 
 }
